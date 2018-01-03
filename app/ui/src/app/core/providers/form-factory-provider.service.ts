@@ -9,6 +9,13 @@ import {
   DynamicSelectModel
 } from '@ng-dynamic-forms/core';
 
+export interface ConfiguredConfigurationProperty extends ConfigurationProperty {
+  value: any;
+  rows?: number;
+  cols?: number;
+  relation?: any;
+}
+
 @Injectable()
 export class FormFactoryProviderService extends FormFactoryService {
   constructor() {
@@ -62,6 +69,7 @@ export class FormFactoryProviderService extends FormFactoryService {
             id: key,
             label: field.displayName || key,
             hint: field.description,
+            relation: field.relation,
             value: value || field.value || field.defaultValue
           },
           {
@@ -82,6 +90,7 @@ export class FormFactoryProviderService extends FormFactoryService {
             value: value || field.value || field.defaultValue,
             hint: field.description,
             required: field.required,
+            relation: field.relation,
             rows: field.rows,
             cols: field.cols,
             validators: validators,
@@ -106,6 +115,7 @@ export class FormFactoryProviderService extends FormFactoryService {
             value: value || field.defaultValue || field.enum[0].value,
             hint: field.description,
             required: field.required,
+            relation: field.relation,
             validators: validators,
             errorMessages: errorMessages,
             options: field.enum
@@ -140,6 +150,7 @@ export class FormFactoryProviderService extends FormFactoryService {
                 })
               : undefined,
             required: type === 'hidden' ? undefined : field.required,
+            relation: field.relation,
             validators: type === 'hidden' ? undefined : validators,
             errorMessages: errorMessages
           },
