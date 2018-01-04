@@ -6,6 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { DynamicFormsCoreModule } from '@ng-dynamic-forms/core';
+import { DynamicFormsBootstrapUIModule } from '@ng-dynamic-forms/ui-bootstrap';
 import {
   AlertModule,
   BsDropdownModule,
@@ -81,6 +82,7 @@ export function mapperRestangularProvider(
     ApiModule.forRoot(),
     CoreModule.forRoot(),
     DynamicFormsCoreModule.forRoot(),
+    DynamicFormsBootstrapUIModule,
     RestangularModule.forRoot([ConfigService], restangularProviderConfigurer),
     TabsModule.forRoot(),
     TooltipModule.forRoot(),
