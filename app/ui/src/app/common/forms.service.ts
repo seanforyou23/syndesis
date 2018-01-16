@@ -62,6 +62,8 @@ export class FormFactoryService {
           {
             id: key,
             label: field.displayName || key,
+            labelTooltip: field.labelHint || null,
+            controlTooltip: field.controlHint || null,
             hint: field.description,
             value: value || field.value || field.defaultValue
           },
@@ -80,6 +82,8 @@ export class FormFactoryService {
           {
             id: key,
             label: field.displayName || key,
+            labelTooltip: field.labelHint || null,
+            controlTooltip: field.controlHint || null,
             value: value || field.value || field.defaultValue,
             hint: field.description,
             required: field.required,
@@ -104,6 +108,8 @@ export class FormFactoryService {
             id: key,
             multiple: false,
             label: field.displayName || key,
+            labelTooltip: field.labelHint || null,
+            controlTooltip: field.controlHint || null,
             value: value || field.defaultValue || field.enum[0].value,
             hint: field.description,
             required: field.required,
@@ -129,6 +135,8 @@ export class FormFactoryService {
           {
             id: key,
             label: type === 'hidden' ? null : field.displayName || key,
+            labelTooltip: field.labelHint || null,
+            controlTooltip: field.controlHint || null,
             inputType: type,
             value: value || field.value || field.defaultValue,
             hint: field.description,

@@ -8,8 +8,8 @@
          [class.required-pf]="model.required"
          [ngClass]="[model.cls.element.label, model.cls.grid.label]">
     {{ model.label }}
-    <div *ngIf="model.hint !== null"
-         [tooltip]="model.hint"
+    <div *ngIf="model.labelTooltip"
+         [tooltip]="model.labelTooltip"
          placement="right"
          class="hint-icon">
       <span class="glyphicon glyphicon-info-sign"></span>
@@ -45,8 +45,8 @@
         <span [innerHTML]="model.label"
               [ngClass]="[model.cls.element.label, model.cls.grid.label]">
         </span>
-        <div *ngIf="model.hint !== null"
-             [tooltip]="model.hint"
+        <div *ngIf="model.labelTooltip !== null"
+             [tooltip]="model.labelTooltip"
              placement="right"
              class="inline-block hint-icon">
           &nbsp;
@@ -137,7 +137,7 @@
                [maxlength]="model.maxLength"
                [minlength]="model.minLength"
                [name]="model.name"
-               [tooltip]="model.hint"
+               [tooltip]="model.controlTooltip"
                [ngClass]="model.cls.element.control"
                [pattern]="model.pattern"
                [placeholder]="model.placeholder"
@@ -199,7 +199,7 @@
               [dynamicId]="bindId && model.id"
               [formControlName]="model.id"
               [name]="model.name"
-              [tooltip]="model.hint"
+              [tooltip]="model.controlTooltip"
               [ngClass]="model.cls.element.control"
               [required]="model.required"
               (blur)="onFocusChange($event)"
@@ -235,9 +235,10 @@
                 (focus)="onFocusChange($event)"></textarea>
 
 
-      <!--<span *ngIf="model.hint" class="help-block"-->
-      <!--[innerHTML]="model.hint"-->
-      <!--[ngClass]="model.cls.element.hint"></span>-->
+      <span *ngIf="model.hint"
+            class="help-block"
+            [innerHTML]="model.hint"
+            [ngClass]="model.cls.element.hint"></span>
 
     </ng-container>
 
