@@ -8,7 +8,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { DynamicFormsCoreModule } from '@ng-dynamic-forms/core';
 import {
   AlertModule,
-  BsDropdownModule,
   CollapseModule,
   ModalModule,
   PopoverModule,
@@ -16,6 +15,7 @@ import {
   TooltipModule,
   TypeaheadModule
 } from 'ngx-bootstrap';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TagInputModule } from 'ngx-chips';
 import { Restangular, RestangularModule } from 'ngx-restangular';
 import { TourNgxBootstrapModule } from 'ngx-tour-ngx-bootstrap';

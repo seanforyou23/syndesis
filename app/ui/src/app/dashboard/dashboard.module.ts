@@ -35,7 +35,7 @@ const routes: Routes = [
     ChartsModule,
     ModalModule,
     TooltipModule,
-    BsDropdownModule,
+    BsDropdownModule.forRoot(),
     TourNgxBootstrapModule
   ],
   declarations: [
