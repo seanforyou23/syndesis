@@ -112,6 +112,8 @@ export class FormFactoryProviderService extends FormFactoryService {
     return new DurationInputModel({
       id: key,
       label: field.displayName || key,
+      labelTooltip: field.labelHint || null,
+      controlTooltip: field.controlHint || null,
       inputType: 'duration',
       value: value || field.value || field.defaultValue,
       hint: field.description,
@@ -140,6 +142,8 @@ export class FormFactoryProviderService extends FormFactoryService {
     return new DynamicInputModel({
       id: key,
       label: type === 'hidden' ? null : field.displayName || key,
+      labelTooltip: field.labelHint || null,
+      controlTooltip: field.controlHint || null,
       inputType: type,
       value: value || field.value || field.defaultValue,
       hint: field.description,
@@ -175,6 +179,8 @@ export class FormFactoryProviderService extends FormFactoryService {
       id: key,
       multiple: false,
       label: field.displayName || key,
+      labelTooltip: field.labelHint || null,
+      controlTooltip: field.controlHint || null,
       value: value || field.defaultValue || field.enum[0].value,
       hint: field.description,
       required: field.required,
@@ -200,6 +206,8 @@ export class FormFactoryProviderService extends FormFactoryService {
     return new DynamicTextAreaModel({
       id: key,
       label: field.displayName || key,
+      labelTooltip: field.labelHint || null,
+      controlTooltip: field.controlHint || null,
       value: value || field.value || field.defaultValue,
       hint: field.description,
       required: field.required,
@@ -227,6 +235,8 @@ export class FormFactoryProviderService extends FormFactoryService {
     return new DynamicCheckboxModel({
       id: key,
       label: field.displayName || key,
+      labelTooltip: field.labelHint || null,
+      controlTooltip: field.controlHint || null,
       hint: field.description,
       value: (!!initialValue)
     }, {
