@@ -191,10 +191,6 @@
   version "5.4.4"
   resolved "https://registry.yarnpkg.com/@ng-dynamic-forms/core/-/core-5.4.4.tgz#1f29c460005ed08a034db3224fc013fc9a509dff"
 
-"@ng-dynamic-forms/ui-bootstrap@^5.4.1":
-  version "5.4.4"
-  resolved "https://registry.yarnpkg.com/@ng-dynamic-forms/ui-bootstrap/-/ui-bootstrap-5.4.4.tgz#7c362290d04ea1d6963f0c3157099c70b5114713"
-
 "@ngrx/effects@^4.1.1":
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-4.1.1.tgz#cb758b8527964b258ea41951f59aa144e3ef9fae"
