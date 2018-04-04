@@ -7,7 +7,7 @@
         (click)="handleLinks($event)"
         *ngIf="connections?.length">
         <a [routerLink]="['/connections']">{{ 'dashboard.connections.viewall' | synI18n }}</a>&nbsp;&nbsp;
-        <button class="btn btn-primary" [routerLink]="['/connections/create']">{{ 'dashboard.connections.create' | synI18n }}</button>
+        <button class="btn btn-primary" [routerLink]="['/connections/create']">{{ 'dashboard.connections.create-btn-txt' | synI18n }}</button>
       </div>
   </div>
 </div>
@@ -21,8 +21,8 @@
           <span class="pficon pficon pficon-add-circle-o"></span>
         </div>
         <h1>{{ 'dashboard.connections.empty-state-create-header' | synI18n }}</h1>
-        <p>{{ 'dashboard.connections.empty-state-text' | synI18n }}</p>
-        <button class="btn btn-primary" [routerLink]="['/connections/create']">{{ 'dashboard.connections.create' | synI18n }}</button>
+        <p>{{ 'dashboard.connections.empty-state-txt' | synI18n }}</p>
+        <button class="btn btn-primary" [routerLink]="['/connections/create']">{{ 'dashboard.connections.create-btn-txt' | synI18n }}</button>
       </div>
     </ng-container>
 
