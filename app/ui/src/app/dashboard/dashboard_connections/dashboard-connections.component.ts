@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { log, getCategory } from '@syndesis/ui/logging';
 import { Connection, Connections } from '@syndesis/ui/platform';
 import { ConnectionStore } from '@syndesis/ui/store';
@@ -19,6 +19,8 @@ export class DashboardConnectionsComponent implements OnInit {
   selectedId: string;
   truncateTrail = '…';
 
+  constructor(private router: Router) {}
+
   onSelect(connection: Connection) {
     log.debugc(
       () => 'Selected connection (list): ' + connection.name,
@@ -26,6 +28,18 @@ export class DashboardConnectionsComponent implements OnInit {
     );
     this.selectedId = connection.id;
     this.selectedConnection.emit(connection);
+  }
+
+  handleLinks(event: any): void {
+    event.stopPropagation();
+    event.preventDefault();
+
+    if(event.target &&
+       event.target.tagName &&
+       event.target.tagName.toLowerCase() === 'a'
+      ) {
+      this.router.navigateByUrl(event.target.getAttribute('href'));
+    }
   }
 
   ngOnInit() {

@@ -41,7 +41,7 @@
         <!-- Toggle Sidebar-->
         <button type="button"
                 class="navbar-toggle">
-          <span class="sr-only">Toggle navigation</span>
+          <span class="sr-only">{{ 'menu.navbartoggle' | synI18n }}</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -79,19 +79,23 @@
                 <a [href]="tutorialLink"
                    rel="nofollow"
                    role="link"
-                   target="_blank">Sample Integration Tutorials</a>
+                   target="_blank">{{ 'header.helpmenu.sampletutorials' | synI18n }}</a>
               </li>
               <li>
                 <a [href]="userGuideLink"
                    rel="nofollow"
                    role="link"
-                   target="_blank">User Guide</a>
+                   target="_blank">{{ 'header.helpmenu.userguide' | synI18n }}</a>
               </li>
-              <li><a routerLink="/support" role="link">Support</a></li>
-              <li><a href="mailto:fuse-ignite-tech-preview@redhat.com"
+              <li>
+                <a routerLink="/support" role="link">{{ 'header.helpmenu.support' | synI18n }}</a>
+              </li>
+              <li>
+                <a href="mailto:fuse-ignite-tech-preview@redhat.com"
                    rel="nofollow"
                    role="link"
-                   target="_blank">Contact Us</a></li>
+                   target="_blank">{{ 'header.helpmenu.contactus' | synI18n }}</a>
+              </li>
             </ul>
           </li>
 
@@ -126,7 +130,7 @@
                 id="userDropdownMenu"
                 aria-labelledby="userDropdown">
               <li>
-                <a (click)="logout()" role="link">Logout</a>
+                <a (click)="logout()" role="link">{{ 'header.usermenu.logout' | synI18n }}</a>
               </li>
               <!--
               <li>
