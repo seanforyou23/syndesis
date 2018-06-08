@@ -226,7 +226,7 @@
               [required]="model.required"
               [disabled]="model.readOnly"
               (blur)="onBlur($event)"
-              (change)="onValueChange($event)"
+              (change)="onChange($event)"
               (focus)="onFocus($event)">
 
         <option *ngFor="let option of model.options$ | async"
