@@ -37,7 +37,7 @@ export class I18NProviderService extends I18NService {
   setLocale(locale: string): Observable<I18NState> {
     const dictionaryUrl = `${dictionaryFolderPath}/${locale}.json`;
     return this.httpClient
-      .get(dictionaryUrl)
+      .get<I18NState>(dictionaryUrl)
       .catch(error => Observable.throw(error));
   }
 
