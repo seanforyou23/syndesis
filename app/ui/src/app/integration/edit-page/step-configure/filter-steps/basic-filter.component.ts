@@ -63,12 +63,14 @@ export class BasicFilterComponent implements OnChanges {
 
     // this can be valid even if we can't fetch the form data
     function initializeForm(ops?, paths?) {
+      console.log('initializeForm ran');
       self.basicFilterModel = createBasicFilterModel(
         self.configuredProperties || <any>{},
         ops,
         paths
       );
       self.formGroup = self.dynamicFormService.createFormGroup(self.basicFilterModel);
+      console.log(self.formGroup.get('filterSettingsGroup').get('predicate'));
       self.predicateControl = self.formGroup
         .get('filterSettingsGroup')
         .get('predicate') as FormControl;
@@ -86,6 +88,7 @@ export class BasicFilterComponent implements OnChanges {
       self.loading = false;
       self.valid = self.formGroup.valid;
       self.validChange.emit(self.formGroup.valid);
+
     }
 
     // Fetch our form data
