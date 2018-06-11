@@ -1,6 +1,7 @@
 import {
   Component,
   ContentChildren,
+  ChangeDetectorRef,
   EventEmitter,
   Input,
   OnChanges,
@@ -77,18 +78,19 @@ export class SyndesisFormComponent extends DynamicFormControlComponent
   @Input() formArrayRowClass: string;
 
   /* tslint:disable */
-  @Output() blur: EventEmitter<any>;
-  @Output() change: EventEmitter<any>;
-  @Output() focus: EventEmitter<any>;
+  @Output() blur: EventEmitter<DynamicFormControlEvent> = new EventEmitter<DynamicFormControlEvent>();
+  @Output() change: EventEmitter<DynamicFormControlEvent> = new EventEmitter<DynamicFormControlEvent>();
+  @Output() focus: EventEmitter<DynamicFormControlEvent> = new EventEmitter<DynamicFormControlEvent>();
   /* tslint:enable */
 
   type: SyndesisFormControlType | null;
 
   constructor(
+    protected detector: ChangeDetectorRef,
     protected layoutService: DynamicFormLayoutService,
     protected validationService: DynamicFormValidationService
   ) {
-    super(layoutService, validationService);
+    super(detector, layoutService, validationService);
   }
 
   static getFormControlType(model: DynamicFormControlModel): SyndesisFormControlType {
@@ -145,7 +147,8 @@ export class SyndesisFormComponent extends DynamicFormControlComponent
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    super.onChange(changes);
+    // super.onValueChange(changes);
+    super.onControlValueChanges(changes);
 
     if (changes['model']) {
       this.type = SyndesisFormComponent.getFormControlType(this.model);

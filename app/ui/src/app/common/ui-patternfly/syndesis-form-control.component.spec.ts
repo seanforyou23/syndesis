@@ -111,7 +111,7 @@ describe('SyndesisFormComponent test suite', () => {
     expect(component.blur).toBeDefined();
     expect(component.change).toBeDefined();
     expect(component.focus).toBeDefined();
-    expect(component.onChange).toBeDefined();
+    // expect(component.onChange).toBeDefined();
     expect(component.onFocus).toBeDefined();
     expect(component.isValid).toBe(true);
     expect(component.isInvalid).toBe(false);
@@ -136,9 +136,9 @@ describe('SyndesisFormComponent test suite', () => {
   });
 
   it('should listen to native change event', () => {
-    spyOn(component, 'onChange');
+    spyOn(component, 'change');
     testElement.triggerEventHandler('change', null);
-    expect(component.onChange).toHaveBeenCalled();
+    expect(component.change).toHaveBeenCalled();
   });
 
   // it('should update model value when control value changes', () => {

@@ -67,8 +67,8 @@ export class IntegrationActivityComponent implements OnInit, OnDestroy {
     const integrationDeployments$ = this.integrationSupportService.getDeployments(this.integration.id);
 
     this.subscription = forkJoin<[Activity[], IntegrationDeployment[]]>([activities$, integrationDeployments$]).map(results => {
-      const activitities = results[0];
-      const integrationDeployments = results[1];
+      const activitities: any[] = results[0];
+      const integrationDeployments: any[] = results[1];
 
       activitities.forEach(activity => {
         if (activity.steps && Array.isArray(activity.steps)) {

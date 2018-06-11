@@ -224,9 +224,8 @@
               [tooltip]="model.controlTooltip"
               [ngClass]="elementControlClass"
               [required]="model.required"
-              [disabled]="model.readOnly"
               (blur)="onBlur($event)"
-              (change)="onChange($event)"
+              (change)="onValueChange($event)"
               (focus)="onFocus($event)">
 
         <option *ngFor="let option of model.options$ | async"
