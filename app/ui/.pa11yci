@@ -1,15 +1,33 @@
 {
   "defaults": {
-    "includeWarnings": true
+    "includeWarnings": true,
+    "includeNotices": true,
+    "standard": "Section508"
   },
   "urls": [
-    "https://syndesis-staging.b6ff.rh-idev.openshiftapps.com/",
-    "https://syndesis-staging.b6ff.rh-idev.openshiftapps.com/integrations",
-    "https://syndesis-staging.b6ff.rh-idev.openshiftapps.com/connections",
-    "https://syndesis-staging.b6ff.rh-idev.openshiftapps.com/customizations/api-connector",
-    "https://syndesis-staging.b6ff.rh-idev.openshiftapps.com/customizations/extensions",
-    "https://syndesis-staging.b6ff.rh-idev.openshiftapps.com/settings/oauth-clients",
-    "https://syndesis-staging.b6ff.rh-idev.openshiftapps.com/connections/create/connection-basics",
-    "https://syndesis-staging.b6ff.rh-idev.openshiftapps.com/support"
+    {
+      "url": "https://syndesis.io/",
+      "screenCapture": "./screencaptures/introducing-syndesis.png"
+    },
+    {
+      "url": "https://syndesis.io/quickstart/",
+      "screenCapture": "./screencaptures/quickstart.png"
+    },
+    {
+      "url": "https://syndesis.io/blog/",
+      "screenCapture": "./screencaptures/syndesis-blog.png"
+    },
+    {
+      "url": "https://syndesis.io/faq/",
+      "screenCapture": "./screencaptures/syndesis-faq.png"
+    },
+    {
+      "url": "https://syndesis.io/community/",
+      "screenCapture": "./screencaptures/syndesis-community.png"
+    },
+    {
+      "url": "https://syndesis.io/community/engineering_guidelines/",
+      "screenCapture": "./screencaptures/engineering-guidelines.png"
+    }
   ]
 }

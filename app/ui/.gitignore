@@ -37,6 +37,7 @@
 npm-debug.log
 testem.log
 /typings
+screencaptures/
 
 #System Files
 .DS_Store
