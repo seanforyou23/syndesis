@@ -1,8 +1,6 @@
 import {
   Component,
-  EventEmitter,
   Input,
-  Output,
   OnDestroy,
   OnInit,
   TemplateRef
@@ -13,12 +11,10 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
 import {
-  ActionConfig,
   FilterConfig,
   FilterEvent,
   FilterField,
   SortConfig,
-  SortField,
   SortEvent,
   ToolbarConfig
 } from 'patternfly-ng';
