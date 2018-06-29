@@ -7,6 +7,7 @@
   "bugs": "https://github.com/syndesisio/syndesis/issues",
   "scripts": {
     "copy:assets": "yarn ncp node_modules/@atlasmap/atlasmap-data-mapper/src/assets/dm src/assets/dm",
+    "copy:exampleconfig": "cp src/config.json.example src/config.json",
     "format": "yarn prettier --no-color --single-quote --trailing-comma none --write \"./src/**/*.{ts,css,scss,js,json}\"",
     "generate": "node ./scripts/generate-ts.js",
     "license": "license-reporter save --xml licenses.xml",

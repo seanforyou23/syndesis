@@ -104,6 +104,15 @@
             </configuration>
           </execution>
           <execution>
+            <id>yarn copy:exampleconfig</id>
+            <goals>
+              <goal>yarn</goal>
+            </goals>
+            <configuration>
+              <arguments>copy:exampleconfig</arguments>
+            </configuration>
+          </execution>
+          <execution>
             <id>yarn ng test</id>
             <goals>
               <goal>yarn</goal>
