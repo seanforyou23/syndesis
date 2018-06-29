@@ -33,7 +33,7 @@ import { ERROR_HANDLER_PROVIDERS } from './error-handler';
     AppRoutingModule,
     SyndesisStoreModule,
     DataMapperModule,
-    NotificationModule,
+    NotificationModule
   ],
   providers: [
     ERROR_HANDLER_PROVIDERS,

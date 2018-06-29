@@ -62,7 +62,8 @@ export class SyndesisFormComponent extends DynamicFormControlComponent
   gridContainerClass: string;
   elementContainerClass: string;
   formGroupClass: boolean;
-  @ContentChildren(DynamicTemplateDirective) contentTemplateList: QueryList<DynamicTemplateDirective>;
+  @ContentChildren(DynamicTemplateDirective)
+  contentTemplateList: QueryList<DynamicTemplateDirective>;
   // TODO disabling this for now as the base class is in a dependency
   /* tslint:disable */
   @Input('templates') inputTemplateList: QueryList<DynamicTemplateDirective>;
@@ -78,9 +79,18 @@ export class SyndesisFormComponent extends DynamicFormControlComponent
   @Input() formArrayRowClass: string;
 
   /* tslint:disable */
-  @Output() blur: EventEmitter<DynamicFormControlEvent> = new EventEmitter<DynamicFormControlEvent>();
-  @Output() change: EventEmitter<DynamicFormControlEvent> = new EventEmitter<DynamicFormControlEvent>();
-  @Output() focus: EventEmitter<DynamicFormControlEvent> = new EventEmitter<DynamicFormControlEvent>();
+  @Output()
+  blur: EventEmitter<DynamicFormControlEvent> = new EventEmitter<
+    DynamicFormControlEvent
+  >();
+  @Output()
+  change: EventEmitter<DynamicFormControlEvent> = new EventEmitter<
+    DynamicFormControlEvent
+  >();
+  @Output()
+  focus: EventEmitter<DynamicFormControlEvent> = new EventEmitter<
+    DynamicFormControlEvent
+  >();
   /* tslint:enable */
 
   type: SyndesisFormControlType | null;
@@ -93,7 +103,9 @@ export class SyndesisFormComponent extends DynamicFormControlComponent
     super(detector, layoutService, validationService);
   }
 
-  static getFormControlType(model: DynamicFormControlModel): SyndesisFormControlType {
+  static getFormControlType(
+    model: DynamicFormControlModel
+  ): SyndesisFormControlType {
     switch (model.type) {
       case DYNAMIC_FORM_CONTROL_TYPE_ARRAY:
         return SyndesisFormControlType.Array;
@@ -129,7 +141,9 @@ export class SyndesisFormComponent extends DynamicFormControlComponent
   }
 
   ngOnInit() {
-    this.formGroupClass = this.asBootstrapFormGroup || this.getClass('element', 'container').includes('formGroup');
+    this.formGroupClass =
+      this.asBootstrapFormGroup ||
+      this.getClass('element', 'container').includes('formGroup');
 
     this.elementContainerClass = this.getClass('element', 'container');
     this.gridContainerClass = this.getClass('grid', 'container');
