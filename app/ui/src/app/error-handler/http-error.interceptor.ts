@@ -1,4 +1,5 @@
-import { tap } from 'rxjs/operators';
+import { Observable, combineLatest, throwError } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,
@@ -7,7 +8,6 @@ import {
   HttpInterceptor,
   HttpErrorResponse
 } from '@angular/common/http';
-import { Observable, combineLatest } from 'rxjs';
 import { NotificationType } from 'patternfly-ng';
 
 import { NotificationService } from '@syndesis/ui/common';
@@ -43,48 +43,49 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
-      tap(
-        (event: HttpEvent<any>) => event,
-        (error: any) => {
-          if (error instanceof HttpErrorResponse) {
-            /* tslint:disable no-console */
-            if (console && console.error) {
-              console.error(
-                'Error performing ' +
-                  request.method +
-                  ' request to ' +
-                  request.url +
-                  ' : ',
-                error || GENERIC_HTTP_ERROR_MSG
-              );
-            }
-            switch (error.status) {
-              case 0:
-              case 504:
-              case 503:
-              case 502:
-                if (
-                  this.notificationService
-                    .getNotifications()
-                    .find(
-                      n =>
-                        n.header === this.errorMessages.httpConnectFailureHeader
-                    )
-                ) {
-                  // Only show one message
-                  return;
-                }
-                this.notificationService.popNotification(<any>{
-                  type: NotificationType.DANGER,
-                  header: this.errorMessages.httpConnectFailureHeader,
-                  message: this.errorMessages.httpConnectFailureMessage,
-                  isPersistent: true
-                });
-                break;
-              default:
-            }
+      catchError((error, caught) => {
+        if (error instanceof HttpErrorResponse) {
+          /* tslint:disable no-console */
+          if (console && console.error) {
+            console.error(
+              'Error performing ' +
+                request.method +
+                ' request to ' +
+                request.url +
+                ' : ',
+              error || GENERIC_HTTP_ERROR_MSG
+            );
+          }
+          switch (error.status) {
+            case 0:
+            case 504:
+            case 503:
+            case 502:
+              if (
+                this.notificationService
+                  .getNotifications()
+                  .find(
+                    n =>
+                      n.header === this.errorMessages.httpConnectFailureHeader
+                  )
+              ) {
+                // Only show one message
+                return;
+              }
+              this.notificationService.popNotification(<any>{
+                type: NotificationType.DANGER,
+                header: this.errorMessages.httpConnectFailureHeader,
+                message: this.errorMessages.httpConnectFailureMessage,
+                isPersistent: true
+              });
+              break;
+            default:
           }
         }
+        return throwError(error);
+      }) as any,
+      tap(
+        (event: HttpEvent<any>) => event
       )
     );
   }

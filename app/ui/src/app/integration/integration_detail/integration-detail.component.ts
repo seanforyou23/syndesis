@@ -1,8 +1,8 @@
 import { ApplicationRef, Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, of, Subscription } from 'rxjs';
-import { map, switchMap, combineLatest, first } from 'rxjs/operators';
+import { Observable, of, Subscription, throwError } from 'rxjs';
+import { map, switchMap, combineLatest, first, catchError } from 'rxjs/operators';
 import {
   Action as PFAction,
   ActionConfig,
@@ -113,16 +113,19 @@ export class IntegrationDetailComponent implements OnInit, OnDestroy {
   attributeUpdated(id: string, updatedAttribute: { [key: string]: string }) {
     this.integrationStore
       .patch(id, updatedAttribute)
+      .pipe(
+        catchError(reason => {
+          this.notificationService.popNotification({
+            type: NotificationType.WARNING,
+            header: 'Update Failed',
+            message: `Failed to update attribute: ${reason}`
+          });
+          return throwError(reason);
+        })
+      )
       .toPromise()
       .then((update: Integration) => {
         // silently succeed
-      })
-      .catch(reason => {
-        this.notificationService.popNotification({
-          type: NotificationType.WARNING,
-          header: 'Update Failed',
-          message: `Failed to update attribute: ${reason}`
-        });
       });
   }
 

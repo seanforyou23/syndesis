@@ -6,6 +6,8 @@ import {
   ViewEncapsulation,
   OnChanges
 } from '@angular/core';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import {
   DynamicFormService,
@@ -15,11 +17,9 @@ import {
 } from '@ng-dynamic-forms/core';
 
 import { DataShape, IntegrationSupportService } from '@syndesis/ui/platform';
-import { log, getCategory } from '@syndesis/ui/logging';
-import { DATA_MAPPER } from '@syndesis/ui/store';
+import { log } from '@syndesis/ui/logging';
 import {
-  CurrentFlowService,
-  FlowEvent
+  CurrentFlowService
 } from '@syndesis/ui/integration/edit-page';
 import { createBasicFilterModel, findById } from './basic-filter.model';
 import { BasicFilter } from './filter.interface';
@@ -108,22 +108,25 @@ export class BasicFilterComponent implements OnChanges {
     // Fetch our form data
     this.integrationSupportService
       .getFilterOptions(this.dataShape)
+      .pipe(
+        catchError(error => {
+          try {
+            log.infoc(
+              () => 'Failed to fetch filter form data: ' + JSON.parse(error)
+            );
+          } catch (err) {
+            log.infoc(() => 'Failed to fetch filter form data: ' + error);
+          }
+          // we can handle this for now using default values
+          initializeForm();
+          return throwError(error);
+        })
+      )
       .toPromise()
       .then((body: any) => {
         const ops = body.ops;
         const paths = body.paths;
         initializeForm(ops, paths);
-      })
-      .catch(error => {
-        try {
-          log.infoc(
-            () => 'Failed to fetch filter form data: ' + JSON.parse(error)
-          );
-        } catch (err) {
-          log.infoc(() => 'Failed to fetch filter form data: ' + error);
-        }
-        // we can handle this for now using default values
-        initializeForm();
       });
   }
 

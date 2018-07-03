@@ -1,5 +1,6 @@
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { BaseEntity, ApiHttpService } from '@syndesis/ui/platform';
 
@@ -38,7 +39,12 @@ export abstract class RESTService<T extends BaseEntity, L extends Array<T>> {
     return this.apiHttpService
       .setEndpointUrl(this.getEndpointSegment(obj.id))
       .put(obj)
-      .pipe(map((response: any) => (response !== null ? response : [])));
+      .pipe(
+        map((response: any) => (response !== null ? response : [])),
+        catchError(err => {
+          return throwError(err);
+        })
+      );
   }
 
   delete(obj: T): Observable<any> {

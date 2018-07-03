@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ValidationErrors } from '@angular/forms';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { ApiHttpService, Connection, Connections } from '@syndesis/ui/platform';
 import { TypeFactory } from '@syndesis/ui/model';
@@ -18,13 +20,15 @@ export class ConnectionService extends RESTService<Connection, Connections> {
     return this.apiHttpService
       .setEndpointUrl('/connections/validation')
       .post(connection)
+      .pipe(
+        catchError(response => {
+          return response.data.reduce((errors, item) => {
+            errors[item.error] = true;
+            return errors;
+          }, {});
+        })
+      )
       .toPromise()
       .then(response => null)
-      .catch(response =>
-        response.data.reduce((errors, item) => {
-          errors[item.error] = true;
-          return errors;
-        }, {})
-      );
   }
 }

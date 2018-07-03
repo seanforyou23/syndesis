@@ -1,4 +1,5 @@
-import { Subject, Observable } from 'rxjs';
+import { Subject, Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -27,6 +28,21 @@ export class ConfigService {
   initialize(configJson = defaultConfigJson): Promise<any | ConfigService> {
     return this.httpClient
       .get(configJson)
+      .pipe(
+        catchError(error => {
+          log.warnc(
+            () =>
+              'Error: Configuration service unreachable! Using defaults: ' +
+              JSON.stringify(this.settingsRepository),
+            category,
+            error
+          );
+
+          Promise.resolve();
+          return throwError(error);
+        }
+        )
+      )
       .toPromise()
       .then(config => {
         log.debugc(
@@ -49,16 +65,6 @@ export class ConfigService {
         );
 
         return this;
-      })
-      .catch(() => {
-        log.warnc(
-          () =>
-            'Error: Configuration service unreachable! Using defaults: ' +
-            JSON.stringify(this.settingsRepository),
-          category
-        );
-
-        Promise.resolve();
       });
   }
 

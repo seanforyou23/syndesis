@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 
 import { Connection } from '@syndesis/ui/platform';
 import { TypeFactory } from '@syndesis/ui/model';

@@ -5,7 +5,8 @@ import {
   DynamicFormControlModel,
   DynamicFormService
 } from '@ng-dynamic-forms/core';
-import { Subscription } from 'rxjs';
+import { Subscription, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import {
   ActionDescriptor,
@@ -134,6 +135,25 @@ export class IntegrationConfigureActionComponent implements OnInit, OnDestroy {
           if (Object.keys(this.step.configuredProperties).length > 0) {
             this.integrationSupport
               .fetchMetadata(this.step.connection, this.step.action, data)
+              .pipe(
+                catchError(error => {
+                  // the message is in the _meta attribute in the response
+                  const message = error.data._meta
+                    ? error.data._meta.message
+                    : null;
+                  this.error = {
+                    class: 'alert alert-warning',
+                    icon: 'pficon pficon-warning-triangle-o',
+                    message:
+                      message ||
+                      error.message ||
+                      error.userMsg ||
+                      error.developerMsg
+                  };
+                  this.loading = false;
+                  return throwError(error);
+                })
+              )
               .toPromise()
               .then((descriptor: ActionDescriptor) => {
                 this.currentFlowService.events.emit({
@@ -145,22 +165,6 @@ export class IntegrationConfigureActionComponent implements OnInit, OnDestroy {
                     this.finishUp();
                   }
                 });
-              })
-              .catch(error => {
-                // the message is in the _meta attribute in the response
-                const message = error.data._meta
-                  ? error.data._meta.message
-                  : null;
-                this.error = {
-                  class: 'alert alert-warning',
-                  icon: 'pficon pficon-warning-triangle-o',
-                  message:
-                    message ||
-                    error.message ||
-                    error.userMsg ||
-                    error.developerMsg
-                };
-                this.loading = false;
               });
           } else {
             /* All done... */
@@ -201,6 +205,12 @@ export class IntegrationConfigureActionComponent implements OnInit, OnDestroy {
         this.step.action,
         this.configuredPropertiesForMetadataCall(step.action)
       )
+      .pipe(
+        catchError(error => {
+          this.initialize(position, page, undefined, error);
+          return throwError(error);
+        })
+      )
       .toPromise()
       .then((descriptor: ActionDescriptor) => {
         this.currentFlowService.events.emit({
@@ -211,9 +221,6 @@ export class IntegrationConfigureActionComponent implements OnInit, OnDestroy {
             this.initialize(position, page, descriptor);
           }
         });
-      })
-      .catch(error => {
-        this.initialize(position, page, undefined, error);
       });
   }
 

@@ -1,11 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import {
   FileUploader,
   FileItem,
   FileLikeObject,
-  FilterFunction,
   FileUploaderOptions,
   ParsedResponseHeaders
 } from 'ng2-file-upload';
@@ -76,6 +76,15 @@ export class TechExtensionImportComponent implements OnInit {
     }
     this.extensionStore
       .importExtension(this.response.id)
+      .pipe(
+        catchError((reason: any) => {
+          this.error = {
+            level: 'alert alert-danger',
+            message: reason.userMsg || 'An unknown error has occurred.'
+          };
+          return throwError(reason);
+        })
+      )
       .toPromise()
       .then(value => {
         this.notificationService.popNotification({
@@ -86,12 +95,6 @@ export class TechExtensionImportComponent implements OnInit {
         this.router.navigate(['/customizations/extensions'], {
           relativeTo: this.route
         });
-      })
-      .catch((reason: any) => {
-        this.error = {
-          level: 'alert alert-danger',
-          message: reason.userMsg || 'An unknown error has occurred.'
-        };
       });
   }
 
