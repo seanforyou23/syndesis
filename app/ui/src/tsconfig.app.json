@@ -33,16 +33,10 @@
       "../node_modules/@types"
     ],
     "paths": {
-      "@angular/*": [
-        "../node_modules/@angular/*"
-      ],
       "@syndesis/ui/*": [
         "app/*"
       ],
       "fs": [ "./global-shims" ]
     }
-  },
-  "angularCompilerOptions": {
-    "preserveWhitespaces": true
   }
 }
