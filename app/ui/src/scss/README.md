@@ -1,6 +1,6 @@
 # About the Syndesis CSS Framework
 
-Syndesis UI is a JavaScript application built on top of the Angular framework. As such, its CSS implementation encompasses two different layers:
+Syndesis UI is a JavaScript application built on top of the React framework. As such, its CSS implementation encompasses two different layers:
 
 * A generic CSS foundation which is injected as a linked dependency into the main `index.html` file upon loading the web application for the first time.
 * Specific CSS rules which are injected into the main application shell on runtime. These particular rules are stylesheets whose hi-specificity CSS is scoped to a single component only, which are injected into the appshell when said component is rendered and get dynamically removed once the component is destroyed.
@@ -64,32 +64,11 @@ You can reuse all the Syndesis variables, mixins and functions or inherited clas
 Sometimes you might find that several components in the same domain or application context need to share the same rules, which are already defined in an already existing component's stylesheet. In such case, **do not copy+paste that CSS snippet into your component's stylesheet**. That will only add technical debt to the project. You can take three different approaches here:
 
 - Strip it out and wrap that reusable piece of functionality in a helper and expose it globally. You can also advocate for a mixin or even a helper class.
-- If you feel the above is a bit overkill because that CSS definition is not generic enough and there are not many chances that it will be reused outside the scope of this domain, then wrap that piece of CSS in a standalone SASS file and import it from the `styleUrls` array in the `@Component` decorator definition.
-- Same as the above, you can skip tweaking the component's decorator definition and import the standalone SCSS file straight from each component's own stylesheet, by means of an `@import` statement.
 
 All in all, you can combine all the approaches above, as needed depending on each circumstance.
-
-## CSS development with the Angular CLI and 3rd party libraries
-
-Please note that we process and build our CSS code by means of the Angular CLI compiler, which takes care of the following:
-
-- Transpiling the code.
-- Adding vendor prefixes.
-- Appending vendor CSS libraries to the main CSS bundle.
-- Compressing the code output.
-- Bundling all generic files into a single named CSS bundle.
-
-### Appending 3rd party libraries to the project
-
-If you install a 3rd party dependency which also features CSS stylesheets, those can be added to the main CSS bundle by appending them to the `styles` array property in `.angular-cli.json`.
-
-Do not forget also to append any file containing vendor SASS variables (such as colors, widths or heights) to our own `base/_vendor.scss` file.
-
-Please refer to Angular CLI's online documentation for details.
 
 ## Essential readings:
 
 * https://sass-lang.com/
 * http://thesassway.com/
 * http://getbem.com/
-* https://angular.io/guide/component-styles

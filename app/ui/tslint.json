@@ -187,43 +187,6 @@
     "unified-signatures": true,
 
     // ***************************************************
-    // Codelyzer Ruleset - Angular Specific
-    // ***************************************************
-    "deprecation": {
-      "severity": "warn"
-    },
-    "banana-in-box": true,
-    "no-input-rename": true,
-    "no-output-rename": true,
-    "use-life-cycle-interface": true,
-    "use-pipe-decorator": true,
-    "use-pipe-transform-interface": true,
-    "angular-whitespace": [
-      true,
-      "check-interpolation"
-    ],
-    "component-class-suffix": [
-      true,
-      "Component",
-      "Page"
-    ],
-    "component-selector": [
-      "element",
-      ["syndesis"],
-      "kebab-case"
-    ],
-    "directive-class-suffix": true,
-    "directive-selector": [
-      "attribute",
-      ["syndesis", "syn"],
-      "camelCase"
-    ],
-    "import-destructuring-spacing": true,
-    "pipe-naming": ["camelCase"],
-    "use-host-property-decorator": true,
-    "use-input-property-decorator": true,
-    "use-output-property-decorator": true,
-    // ***************************************************
     // TSLint rules for RxJS
     // ***************************************************
     "rxjs-add": {
