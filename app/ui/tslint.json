@@ -5,6 +5,7 @@
   "extends": [
     "rxjs-tslint-rules"
   ],
+  "defaultSeverity": "warning",
   "rules": {
     // ***************************************************
     // TypeScript linting Ruleset
