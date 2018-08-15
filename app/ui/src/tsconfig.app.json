@@ -11,6 +11,7 @@
         "supressWhileTypeErrorsPresent": false
       }
     ],
+    "jsx": "react",
     "declaration": false,
     "removeComments": true,
     "emitDecoratorMetadata": true,
@@ -36,6 +37,8 @@
       "@syndesis/ui/*": [
         "app/*"
       ]
-    }
+    },
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   }
 }
