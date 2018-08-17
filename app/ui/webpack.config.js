@@ -2,7 +2,7 @@ const path = require('path');
 const srcDir = path.resolve(__dirname, './src');
 const distDir = path.resolve(__dirname, './dist');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 // const webpack = require('webpack');
 
 module.exports = env => {
@@ -38,14 +38,14 @@ module.exports = env => {
         }
       ]
     },
-    // resolve: {
-    //   extensions: ['.tsx', '.ts', '.js'],
-    //   plugins: [
-    //     new TsconfigPathsPlugin({
-    //       configFile: path.resolve(__dirname, './src/tsconfig.json')
-    //     })
-    //   ]
-    // },
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js'],
+      plugins: [
+        new TsconfigPathsPlugin({
+          configFile: path.resolve(__dirname, './tsconfig.json')
+        })
+      ]
+    },
     plugins: [
       new HtmlWebpackPlugin({
         template: path.join(srcDir, 'index.html')

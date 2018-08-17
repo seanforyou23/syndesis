@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src/",
     "plugins": [
       {
         "name": "tslint-language-service",
         "alwaysShowRuleFailuresAsWarnings": true,
         "ignoreDefinitionFiles": true,
-        "configFile": "../tslint.json",
+        "configFile": "./tslint.json",
         "disableNoUnusedVariableRule": true,
         "supressWhileTypeErrorsPresent": false
       }
@@ -21,24 +21,42 @@
       "es6",
       "dom"
     ],
-    "mapRoot": "./",
+    "mapRoot": "./src/",
     "module": "esnext",
     "moduleResolution": "node",
     "noUnusedParameters": false,
-    "noUnusedLocals": false,
+    "noUnusedLocals": true,
     "noFallthroughCasesInSwitch": false,
-    "outDir": "../dist/out-tsc",
+    "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "target": "es5",
     "typeRoots": [
-      "../node_modules/@types"
+      "./node_modules/@types"
     ],
     "paths": {
       "@syndesis/ui/*": [
-        "app/*"
+        "src/app/*"
       ]
     },
+    "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
-  }
+  },
+  "include": [
+    "./src/**/*",
+    "./webpack.config.js",
+    "./preprocessor.js",
+    "./sum.ts",
+    "./index.test.tsx",
+    "./index.tsx",
+    "./images.d.ts",
+    "./jest.config.js"
+  ],
+  "exclude": [
+    "node_modules/**",
+    "dist/**",
+    "scripts/**",
+    "coverage/**",
+    "docker/**"
+  ]
 }
