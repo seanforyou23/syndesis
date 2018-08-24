@@ -49,9 +49,21 @@
     "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
+    "@angular/common": "^6.1.4",
+    "@angular/compiler": "^6.1.4",
+    "@angular/core": "^6.1.4",
+    "@angular/forms": "^6.1.4",
+    "@angular/platform-browser": "^6.1.4",
+    "@angular/platform-browser-dynamic": "^6.1.4",
+    "@atlasmap/atlasmap-data-mapper": "^1.36.0-SNAPSHOT.20180803151010",
+    "core-js": "^2.5.7",
     "css-loader": "^1.0.0",
+    "ngx-bootstrap": "^3.0.1",
+    "rxjs": "^6.2.2",
+    "rxjs-compat": "^6.2.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.22.1",
-    "url-loader": "^1.1.1"
+    "url-loader": "^1.1.1",
+    "zone.js": "^0.8.26"
   }
 }
