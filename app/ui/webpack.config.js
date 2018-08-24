@@ -35,6 +35,18 @@ module.exports = env => {
               loader: 'ts-loader'
             }
           ]
+        },
+        {
+          test: /\.css$/,
+          loaders: ['style-loader', 'css-loader']
+        },
+        {
+            test: /\.scss$/,
+            loaders: ['style-loader', 'css-loader', 'sass-loader']
+        },
+        {
+          test: /\.eot|.svg|.woff|.woff2|.ttf$/,
+          loaders: ['url-loader']
         }
       ]
     },
