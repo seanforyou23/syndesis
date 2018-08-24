@@ -17,6 +17,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "skipLibCheck": true,
+    "noImplicitAny": true,
     "lib": [
       "es6",
       "dom"
@@ -30,9 +31,6 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "target": "es5",
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
     "paths": {
       "@syndesis/ui/*": [
         "src/app/*"
