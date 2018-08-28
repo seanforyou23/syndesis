@@ -2,8 +2,7 @@
   "rulesDirectory": [],
   "extends": [
     "tslint:recommended",
-    "rxjs-tslint-rules",
-    "tslint-react"
+    "rxjs-tslint-rules"
   ],
   "defaultSeverity": "error",
   "linterOptions": {
@@ -194,9 +193,6 @@
     "ordered-imports": [true, {
       "import-sources-order": "any",
       "named-imports-order": "case-insensitive"
-    }],
-    "jsx-boolean-value": [true, "never"],
-    "jsx-self-close": true,
-    "jsx-wrap-multiline": true
+    }]
   }
 }

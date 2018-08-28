@@ -20,7 +20,7 @@ module.exports = env => {
       host: 'localhost'
     },
     entry: [
-      path.join(srcDir, 'index.tsx')
+      path.join(srcDir, 'index.ts')
     ],
     output: {
       path: distDir,
@@ -29,7 +29,7 @@ module.exports = env => {
     module: {
       rules: [
         {
-          test: /\.tsx?$/,
+          test: /\.ts?$/,
           use: [
             {
               loader: 'ts-loader'
@@ -51,7 +51,7 @@ module.exports = env => {
       ]
     },
     resolve: {
-      extensions: ['.tsx', '.ts', '.js'],
+      extensions: ['.ts', '.js'],
       plugins: [
         new TsconfigPathsPlugin({
           configFile: path.resolve(__dirname, './tsconfig.json')

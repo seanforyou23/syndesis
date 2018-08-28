@@ -11,7 +11,6 @@
         "supressWhileTypeErrorsPresent": false
       }
     ],
-    "jsx": "react",
     "declaration": false,
     "removeComments": true,
     "emitDecoratorMetadata": true,
