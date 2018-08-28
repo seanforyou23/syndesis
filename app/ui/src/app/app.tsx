@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { Alert } from 'patternfly-react';
 import foo from './test.json';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import 'patternfly-react/dist/css/patternfly-react.css';
 
