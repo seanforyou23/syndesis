@@ -1,32 +1,23 @@
 import React from 'react';
 
 import { Alert } from 'patternfly-react';
-import foo from './test.json';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'patternfly-react/dist/css/patternfly-react.css';
 
+import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter';
+import { ApicurioLoader } from './vendor/apicurio/apicurio-loader';
 export interface Props {
   name: string;
-  enthusiasmLevel?: number;
 }
 
-export function App({name, enthusiasmLevel = 1}: Props) {
-  console.log('App.tsx');
-  console.log(foo);
-
-  if (enthusiasmLevel <= 0) {
-    throw new Error('You could be a little more enthusiastic. :D');
-  }
+export function App({name}: Props) {
 
   return (
     <div>
-      <h1>{name + getExclamationMarks(enthusiasmLevel)}</h1>
-      <Alert>I am an Alert with type="error"</Alert>
+      <h1>App.tsx Component for: {name}</h1>
+      <Alert>I am an Alert imported from PF-React</Alert>
+      <ApicurioLoader api="fooapi" embedded />
     </div>
   );
-}
-
-function getExclamationMarks(numChars: number) {
-  return Array(numChars + 1).join('!');
 }
