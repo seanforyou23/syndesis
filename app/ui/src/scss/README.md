@@ -10,9 +10,8 @@ Syndesis UI is a JavaScript application built on top of the React framework. As 
 In order to keep consistency in our code, we should conform to the following conventions:
 
 * Apply a custom prefix to our CSS selectors such as `.syn-`. This ensures we will prevent name collisions with CSS classnames brought into the project by other 3rd party libraries in use.
-* Use the [BEM pattern](http://getbem.com/) for naming class names and properly nesting them to ensure stylesheets provide an informative picture of the DOM elements hierarchy in our documents. Use SASS compound selectors to enhance your code by leveraging nesting.
 * Apply styles from global to particular: always begin styling elements in a generic fashion (or just delegate styling on libraries such as Patternfly) and then apply styles on a per component basis only when the general CSS ruleset needs to be overriden.
-* Ensure zero-specificity by avoiding the `!important` declaration and stay away from Shadow Piercing combinators. If a child component needs to be restyled, create specific classnames within the child component element itself that can be triggered from the host element. In the case of 3rd party components, resource to `::ng-deep`.
+* Ensure low-specificity by avoiding the `!important` declaration and stay away from Shadow Piercing combinators. If a child component needs to be restyled, create specific classnames within the child component element itself that can be triggered from the host element.
 
 ## Folders and partials filesystem
 The CSS implementation is based on SASS under the SCSS syntax, hence the name for the parent folder containing all files. These files observe a very strict policy:
@@ -71,4 +70,3 @@ All in all, you can combine all the approaches above, as needed depending on eac
 
 * https://sass-lang.com/
 * http://thesassway.com/
-* http://getbem.com/
