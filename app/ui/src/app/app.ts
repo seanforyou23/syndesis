@@ -1,6 +1,8 @@
 import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter';
 import 'bootstrap/dist/css/bootstrap.css';
 
+import { ApicurioLoader } from './apicurio-loader';
+
 class SyndesisUI extends HTMLElement {
   constructor() {
     super();
@@ -8,16 +10,17 @@ class SyndesisUI extends HTMLElement {
   }
 
   render() {
-    this.innerHTML = `<h1>Syndesis via Web Component<h1>`;
+    this.innerHTML = `<h1>Syndesis via Web Component <apicurio-loader></apicurio-loader><h1>`;
   }
 
   connectedCallback() {
-    console.log('mounted to DOM');
+    console.log('syndesis mounted to DOM');
   }
 
   disconnectedCallback() {
-    console.log('disconnected');
+    console.log('syndesis disconnected');
   }
 }
 
 window.customElements.define('syndesis-ui', SyndesisUI);
+window.customElements.define('apicurio-loader', ApicurioLoader);
