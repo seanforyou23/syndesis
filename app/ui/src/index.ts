@@ -1,3 +1,1 @@
-import { App } from 'app/app';
-
-console.log(App);
+import 'app/app';
