@@ -7,7 +7,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @Component({
   selector: 'test-component',
-  template: `<div>hello world</div>`
+  template: `<data-mapper-example-host></data-mapper-example-host>`
 })
 
 export class TestComponent implements OnInit {
@@ -30,9 +30,7 @@ export class AppModule {}
 
 export function bootstrap() {
   /* tslint:disable:no-console */
-  platformBrowserDynamic().bootstrapModule(AppModule, {
-    preserveWhitespaces: true
-  })
+  platformBrowserDynamic().bootstrapModule(AppModule)
   .catch((err: any) => console.log(err));
 
 }
