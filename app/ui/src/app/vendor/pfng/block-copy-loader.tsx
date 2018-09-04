@@ -1,5 +1,5 @@
 import React from 'react';
-
+// import { BlockCopyModule } from 'patternfly-ng';
 export class BlockCopyComponent extends HTMLElement {
   constructor() {
     super();
@@ -13,6 +13,7 @@ export class BlockCopyComponent extends HTMLElement {
   connectedCallback() {
     console.log('pfng block copy mounted to DOM');
     this.render();
+    // console.log(BlockCopyModule);
   }
 
   disconnectedCallback() {
