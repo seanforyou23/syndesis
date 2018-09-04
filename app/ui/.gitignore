@@ -39,6 +39,7 @@ yarn-debug.log*
 testem.log
 /typings
 .rpt2_cache/
+stats.json
 
 #System Files
 .DS_Store
