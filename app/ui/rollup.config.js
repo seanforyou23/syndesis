@@ -1,12 +1,11 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
-import typescript from 'rollup-plugin-typescript2';
 const path = require('path');
 const distDir = path.resolve(__dirname, './dist');
-const srcDir = path.resolve(__dirname, './src');
 
 export default {
-  input: path.join(srcDir, 'index.tsx'),
+  // external: ['react'],
+  input: path.join(distDir, 'main.bundle.js'),
   output: {
     format: 'iife',
     sourceMap: 'inline',
@@ -17,12 +16,8 @@ export default {
     resolve({
       main: true,
       module: true,
-      jsnext: true,
-      // extensions: [ '.tsx', '.ts', '.js', '.jsx', '.json', '.css' ]  // Default: [ '.mjs', '.js', '.json', '.node' ]
+      jsnext: true
     }),
-    commonjs({
-      include: [ 'node_modules/**']
-    }),
-    typescript()
+    commonjs()
   ]
 }
