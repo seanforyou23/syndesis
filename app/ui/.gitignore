@@ -38,6 +38,7 @@ npm-debug.log*
 yarn-debug.log*
 testem.log
 /typings
+.rpt2_cache/
 
 #System Files
 .DS_Store
