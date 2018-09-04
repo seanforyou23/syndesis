@@ -14,8 +14,10 @@
   "scripts": {
     "test": "jest",
     "webpack": "webpack",
-    "build": "npm-run-all --serial clean ts:lint webpack build:rollup",
+    "build": "npm-run-all --serial clean ts:lint webpack",
     "build:rollup": "yarn rollup -c",
+    "build:analyze": "yarn build:profile && webpack-bundle-analyzer ./stats.json",
+    "build:profile": "webpack --profile --json > stats.json",
     "start": "webpack-dev-server --hot --color --progress --info=true",
     "ts:lint": "tslint -p ./tsconfig.json",
     "clean": "yarn rimraf dist"
@@ -58,6 +60,7 @@
     "typescript": "^3.0.1",
     "url-loader": "^1.1.1",
     "webpack": "^4.16.5",
+    "webpack-bundle-analyzer": "^2.13.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   },
