@@ -2,6 +2,48 @@
 # yarn lockfile v1
 
 
+"@angular/common@^6.1.6":
+  version "6.1.6"
+  resolved "https://registry.yarnpkg.com/@angular/common/-/common-6.1.6.tgz#16597d89dddd72a606d3cc7125ffa30a87f5ee09"
+  dependencies:
+    tslib "^1.9.0"
+
+"@angular/compiler@^6.1.6":
+  version "6.1.6"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-6.1.6.tgz#2c858fe78ad1ca5bb3c886bd638bbb144af36e06"
+  dependencies:
+    tslib "^1.9.0"
+
+"@angular/core@^6.1.6":
+  version "6.1.6"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-6.1.6.tgz#130758ad49cad5f6f075693f6496bbc7d510db3b"
+  dependencies:
+    tslib "^1.9.0"
+
+"@angular/forms@^6.1.6":
+  version "6.1.6"
+  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-6.1.6.tgz#1c4936993f2dbcee516cb547a534da3c70f84b76"
+  dependencies:
+    tslib "^1.9.0"
+
+"@angular/platform-browser-dynamic@^6.1.6":
+  version "6.1.6"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-6.1.6.tgz#49c2048d61b6d0958b2f0deb68cebe638b2f7f63"
+  dependencies:
+    tslib "^1.9.0"
+
+"@angular/platform-browser@^6.1.6":
+  version "6.1.6"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-6.1.6.tgz#9a9498aa455978e974436000ddde8af9f64eef13"
+  dependencies:
+    tslib "^1.9.0"
+
+"@atlasmap/atlasmap-data-mapper@^1.37.0-SNAPSHOT.20180901030157":
+  version "1.37.0-SNAPSHOT.20180901030157"
+  resolved "https://registry.yarnpkg.com/@atlasmap/atlasmap-data-mapper/-/atlasmap-data-mapper-1.37.0-SNAPSHOT.20180901030157.tgz#f886359a5df59761ee16e5e2b0556b87ea66305f"
+  dependencies:
+    tslib "^1.9.0"
+
 "@babel/code-frame@^7.0.0-beta.35":
   version "7.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0-rc.1.tgz#5c2154415d6c09959a71845ef519d11157e95d10"
@@ -5379,7 +5421,7 @@ patternfly-react@^2.14.0:
     sortabular "^1.5.1"
     table-resolver "^3.2.0"
 
-patternfly@^3.28.0:
+patternfly@^3.28.0, patternfly@^3.54.2:
   version "3.54.2"
   resolved "https://registry.yarnpkg.com/patternfly/-/patternfly-3.54.2.tgz#58b4b424462c4b01aaebf41db2da3bcd63bedfbf"
   dependencies:
@@ -7645,3 +7687,7 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+zone.js@^0.8.26:
+  version "0.8.26"
+  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.26.tgz#7bdd72f7668c5a7ad6b118148b4ea39c59d08d2d"
