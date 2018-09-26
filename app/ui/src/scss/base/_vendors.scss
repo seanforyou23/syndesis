@@ -1,1 +1,27 @@
-@import 'patternfly-sass/assets/stylesheets/patternfly/variables';
+// ********************************************************************************* //
+// ********************************* VENDOR STYLES ********************************* //
+// ********************************************************************************* //
+
+// Patternfly-3
+// $img-path, $font-path, and $icon-font-path sass variables need to be
+// configured to use patternfly 3 sass - there is a corresponding adjustment needed
+// in the sass-loader configuration, see webpack config
+$img-path: '../../node_modules/patternfly/dist/img/';
+$font-path: '../../node_modules/patternfly/dist/fonts/';
+$icon-font-path: '../../node_modules/patternfly/dist/fonts/';
+@import '~patternfly/dist/sass/patternfly';
+
+// Patternfly-3-React
+@import '~patternfly-react/dist/sass/patternfly-react';
+
+// Patternfly-4
+// $pf-global--image-path, $fa-font-path, and $pf-global--image-path sass variables
+// need to be configured to use patternfly 4 sass
+$pf-global--font-path: '../../node_modules/@patternfly/patternfly-next/assets/fonts/';
+$fa-font-path: '../../node_modules/@patternfly/patternfly-next/assets/fonts/webfonts/';
+$pf-global--image-path: '../../node_modules/@patternfly/patternfly-next/assets/images/';
+@import '~@patternfly/patternfly-next/patternfly';
+
+// import individual component styles like so
+// @import '~@patternfly/patternfly-next/patternfly-base';
+// @import '~@patternfly/patternfly-next/components/Button/styles';

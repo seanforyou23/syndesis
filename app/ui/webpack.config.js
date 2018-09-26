@@ -1,6 +1,6 @@
 const path = require('path');
-const srcDir = path.resolve(__dirname, './src');
-const distDir = path.resolve(__dirname, './dist');
+const srcDir = path.resolve(__dirname, 'src');
+const distDir = path.resolve(__dirname, 'dist');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 // const webpack = require('webpack');
@@ -13,7 +13,7 @@ module.exports = env => {
     devtool: isProd ? 'source-maps' : 'eval',
     devServer: {
       contentBase: distDir,
-      publicPath: '/',
+      // publicPath: '/',
       historyApiFallback: true,
       compress: true,
       clientLogLevel: 'info',
@@ -41,12 +41,37 @@ module.exports = env => {
           loaders: ['style-loader', 'css-loader']
         },
         {
-            test: /\.scss$/,
-            loaders: ['style-loader', 'css-loader', 'sass-loader']
+          test: /\.(jpe?g|png|gif)$/i,
+          use: ['url-loader?limit=10000', 'img-loader']
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            {loader: 'style-loader'},
+            {loader: 'css-loader'},
+            {
+              loader: 'sass-loader',
+              options: {
+                includePaths: [
+                  // pf3
+                  path.resolve(__dirname, 'node_modules', 'patternfly', 'dist', 'sass'),
+                  path.resolve(__dirname, 'node_modules', 'bootstrap-sass', 'assets', 'stylesheets'),
+                  path.resolve(__dirname, 'node_modules', 'font-awesome-sass', 'assets', 'stylesheets')
+                ]
+              }
+            }
+          ]
         },
         {
           test: /\.eot|.svg|.woff|.woff2|.ttf$/,
-          loaders: ['url-loader']
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 5000
+              }
+            }
+          ]
         }
       ]
     },
