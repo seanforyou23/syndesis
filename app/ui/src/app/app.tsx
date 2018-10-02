@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, Route } from 'react-router-dom';
 
 import { Alert } from 'patternfly-react';
 import '../scss/app.scss';
@@ -42,6 +43,8 @@ export function App({name}: Props) {
           <button className="pf-c-button pf-m-primary">
             Primary
           </button>
+          <Link to="/dashboard">Dashboard</Link>
+          {/* <Route path="/dashboard" component={ApicurioLoader}/> */}
         </div>
       </div>
 
