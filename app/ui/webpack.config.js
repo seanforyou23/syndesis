@@ -10,7 +10,7 @@ module.exports = env => {
 
   return {
     mode: isProd ? 'production' : 'development',
-    devtool: isProd ? 'source-maps' : 'eval',
+    devtool: isProd ? 'source-maps' : 'cheap-module-source-map',
     devServer: {
       contentBase: distDir,
       // publicPath: '/',
