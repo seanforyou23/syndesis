@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link, Route } from 'react-router-dom';
 // import { Alert } from 'patternfly-react';
 import '../scss/app.scss';
 
@@ -51,6 +51,9 @@ export interface Props {
 //     </div>
 //   );
 // }
+
+
+{/* <Route path="/dashboard" component={ApicurioLoader}/> */}
 
 export function App({name}: Props) {
   return (

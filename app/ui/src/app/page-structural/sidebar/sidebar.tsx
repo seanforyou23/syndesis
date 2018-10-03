@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export class Sidebar extends React.Component {
 
@@ -11,11 +12,13 @@ export class Sidebar extends React.Component {
             <li className="pf-c-nav__item">
               <a href="#" className="pf-c-nav__link pf-m-current" aria-current="page">
                 Home
+                <Link to="/dashboard">Dashboard</Link>
               </a>
             </li>
             <li className="pf-c-nav__item">
               <a href="#" className="pf-c-nav__link">
                 Integrations
+                {/* <Link to="/dashboard">Dashboard</Link> */}
               </a>
             </li>
             <li className="pf-c-nav__item">
