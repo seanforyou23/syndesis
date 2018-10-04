@@ -28,5 +28,5 @@ export interface Props {
 }
 
 export function ApicurioLoader({api, embedded}: Props) {
-  return <apicurio-component />
+  return <apicurio-component />;
 }
