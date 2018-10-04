@@ -5,7 +5,7 @@ import logoText from '../../../assets/images/syndesis-logo-svg-white.svg';
 export class Brand extends React.Component {
 
   toggleNav(): void {
-    (function() {
+    (() => {
       const mq = window.matchMedia('(min-width: 768px)');
       let page = document.getElementById('primary-nav');
       page = page.parentElement;
@@ -17,8 +17,7 @@ export class Brand extends React.Component {
           page.classList.toggle('pf-m-expanded');
       }
       return false;
-  })();
-  // return false;
+    })();
   }
 
   render() {

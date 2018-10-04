@@ -85,6 +85,10 @@
   version "1.0.58"
   resolved "https://registry.yarnpkg.com/@patternfly/patternfly-next/-/patternfly-next-1.0.58.tgz#eb984f4573424aac98f966b9a17b8b5df6f57692"
 
+"@patternfly/react-icons@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@patternfly/react-icons/-/react-icons-2.4.0.tgz#f90fa68d626fc62266545b21fdedf0967abbc860"
+
 "@patternfly/react-styles@^2.0.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@patternfly/react-styles/-/react-styles-2.1.1.tgz#6abdac8522f3e6306a22d7ee5d98450af865997d"
