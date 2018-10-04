@@ -6,9 +6,9 @@
 // $img-path, $font-path, and $icon-font-path sass variables need to be
 // configured to use patternfly 3 sass - there is a corresponding adjustment needed
 // in the sass-loader configuration, see webpack config
-$img-path: '../../node_modules/patternfly/dist/img/';
-$font-path: '../../node_modules/patternfly/dist/fonts/';
-$icon-font-path: '../../node_modules/patternfly/dist/fonts/';
+$img-path: '~patternfly/dist/img/';
+$font-path: '~patternfly/dist/fonts/';
+$icon-font-path: '~patternfly/dist/fonts/';
 @import '~patternfly/dist/sass/patternfly';
 
 // Patternfly-3-React
@@ -17,9 +17,9 @@ $icon-font-path: '../../node_modules/patternfly/dist/fonts/';
 // Patternfly-4
 // $pf-global--image-path, $fa-font-path, and $pf-global--image-path sass variables
 // need to be configured to use patternfly 4 sass
-$pf-global--font-path: '../../node_modules/@patternfly/patternfly-next/assets/fonts/';
-$fa-font-path: '../../node_modules/@patternfly/patternfly-next/assets/fonts/webfonts/';
-$pf-global--image-path: '../../node_modules/@patternfly/patternfly-next/assets/images/';
+$pf-global--font-path: '~@patternfly/patternfly-next/assets/fonts/';
+$fa-font-path: '~@patternfly/patternfly-next/assets/fonts/webfonts/';
+$pf-global--image-path: '~@patternfly/patternfly-next/assets/images/';
 @import '~@patternfly/patternfly-next/patternfly';
 
 // import individual component styles like so

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export class Sidebar extends React.Component {
 
@@ -10,25 +10,25 @@ export class Sidebar extends React.Component {
           <ul className="pf-c-nav__list">
             <li className="pf-c-nav__item">
               {/* TODO: add aria-current="true for active view */}
-              <Link to="/" className="pf-c-nav__link">Home</Link>
+              <NavLink to="/" className="pf-c-nav__link">Home</NavLink>
             </li>
             <li className="pf-c-nav__item">
-              <Link to="/integrations" className="pf-c-nav__link">Integrations</Link>
+              <NavLink to="/integrations" className="pf-c-nav__link">Integrations</NavLink>
             </li>
             <li className="pf-c-nav__item">
-              <Link to="/connections" className="pf-c-nav__link">Connections</Link>
+              <NavLink to="/connections" className="pf-c-nav__link">Connections</NavLink>
             </li>
             <li className="pf-c-nav__item">
-              <Link to="/customizations" className="pf-c-nav__link">Customizations</Link>
+              <NavLink to="/customizations" className="pf-c-nav__link">Customizations</NavLink>
             </li>
             <li className="pf-c-nav__item">
-              <Link to="/settings" className="pf-c-nav__link">Settings</Link>
+              <NavLink to="/settings" className="pf-c-nav__link">Settings</NavLink>
             </li>
             <li className="pf-c-nav__item">
-              <Link to="/atlasmap" className="pf-c-nav__link">Atlasmap</Link>
+              <NavLink to="/atlasmap" className="pf-c-nav__link">Atlasmap</NavLink>
             </li>
             <li className="pf-c-nav__item">
-              <Link to="/apicurio" className="pf-c-nav__link">Apicurio</Link>
+              <NavLink to="/apicurio" className="pf-c-nav__link">Apicurio</NavLink>
             </li>
           </ul>
         </nav>

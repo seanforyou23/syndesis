@@ -1,12 +1,13 @@
-import React from 'react';
+// import '@atlasmap/atlasmap-data-mapper';
 export class AtlasmapComponent extends HTMLElement {
   constructor() {
     super();
   }
 
   render() {
-    const shadowRoot = this.attachShadow({mode: 'open'});
+    const shadowRoot = this.attachShadow({ mode: 'open' });
     shadowRoot.innerHTML = `<h1 style="color:#fff">Atlasmap Web Component Container</h1>`;
+    // shadowRoot.innerHTML = `<data-mapper-example-host>`;
   }
 
   connectedCallback() {
@@ -19,14 +20,3 @@ export class AtlasmapComponent extends HTMLElement {
   }
 }
 window.customElements.define('atlasmap-component', AtlasmapComponent);
-
-export interface Props {
-  onCommandExecuted?: string;
-  onSelectionChanged?: string;
-  api: any;
-  embedded: boolean;
-}
-
-export function AtlasmapLoader({api, embedded}: Props) {
-  return <atlasmap-component />;
-}
