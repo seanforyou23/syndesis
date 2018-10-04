@@ -4,8 +4,6 @@ import { HeaderTools } from '../header/header-tools/header-tools';
 
 export class Header extends React.Component {
 
-  componentDidMount() {}
-
   render() {
     return (
       <header role="banner" className="pf-l-page__header">
@@ -15,11 +13,3 @@ export class Header extends React.Component {
     );
   }
 }
-
-// export function Header() {
-//   return (
-//     <header role="banner" className="pf-l-page__header">
-//       <Brand />
-//     </header>
-//   );
-// }

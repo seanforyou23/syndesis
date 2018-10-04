@@ -10,7 +10,7 @@ export class Main extends React.Component {
     return (
       <main role="main" className="pf-l-page__main">
 
-        {/* <section className="pf-l-page__main-section pf-m-light">
+        <section className="pf-l-page__main-section pf-m-light">
           <div className="pf-c-content">
             <h1>Syndesis Reacts</h1>
             <p>
@@ -18,7 +18,7 @@ export class Main extends React.Component {
               <br /> of it’s relative line height of 1.5.
             </p>
           </div>
-        </section> */}
+        </section>
 
         <section className="pf-l-page__main-section">
           {this.props.children}

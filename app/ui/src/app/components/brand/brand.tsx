@@ -28,8 +28,9 @@ export class Brand extends React.Component {
             className="pf-c-button pf-m-plain"
             id="nav-toggle"
             aria-label="Toggle primary navigation"
-            onClick={() => {this.toggleNav()}}>
-            <i className="fas fa-bars" aria-hidden="true"></i>
+            onClick={() => { this.toggleNav(); }}
+          >
+            <i className="fas fa-bars" aria-hidden="true" />
           </button>
         </div>
         <a className="pf-l-page__header-brand-link">
@@ -40,19 +41,3 @@ export class Brand extends React.Component {
     );
   }
 }
-
-
-// export function Brand() {
-//   return (
-//     <div className="pf-l-page__header-brand">
-//       <div className="pf-l-page__header-brand-toggle">
-
-//         <button className="pf-c-button pf-m-plain" id="nav-toggle" aria-label="Toggle primary navigation">
-//           <i className="fas fa-bars" aria-hidden="true"></i>
-//         </button>
-
-
-//       </div>
-//     </div>
-//   );
-// }

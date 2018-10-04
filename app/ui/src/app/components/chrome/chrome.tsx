@@ -11,8 +11,6 @@ export class Chrome extends React.Component<Props> {
     super(props);
   }
 
-  componentDidMount() {}
-
   render() {
     return (
       <div>
@@ -22,6 +20,6 @@ export class Chrome extends React.Component<Props> {
         {this.props.children}
       </div>
     </div>
-    )
+    );
   }
 }

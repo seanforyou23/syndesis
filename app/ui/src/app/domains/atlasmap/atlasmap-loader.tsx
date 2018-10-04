@@ -28,5 +28,5 @@ export interface Props {
 }
 
 export function AtlasmapLoader({api, embedded}: Props) {
-  return <atlasmap-component />
+  return <atlasmap-component />;
 }
