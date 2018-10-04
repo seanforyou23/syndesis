@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Route } from 'react-router-dom';
 export class ApicurioComponent extends HTMLElement {
   constructor() {
     super();
@@ -7,11 +6,11 @@ export class ApicurioComponent extends HTMLElement {
 
   render() {
     const shadowRoot = this.attachShadow({mode: 'open'});
-    shadowRoot.innerHTML = `<button class="apirucio-wc-btn">web component content</button>`;
+    shadowRoot.innerHTML = `<h1 style="color:#fff">Apicurio Web Component Container</h1>`;
   }
 
   connectedCallback() {
-    console.log('apicurio mounted to DOM');
+    console.log('apicurio connected');
     this.render();
   }
 
@@ -29,18 +28,5 @@ export interface Props {
 }
 
 export function ApicurioLoader({api, embedded}: Props) {
-
-  return (
-    <div>
-      <h1>apicurio-loader.tsx Component for: {api}</h1>
-      <div>
-        Apicurio Props:
-        <ul>
-          <li>embedded: {embedded.toString()}</li>
-          <li>api: {api}</li>
-        </ul>
-        <apicurio-component />
-      </div>
-    </div>
-  );
+  return <apicurio-component />
 }

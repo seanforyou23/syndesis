@@ -1,2 +1,2 @@
-import '../app/vendor/apicurio/typings';
-import '../app/vendor/pfng/typings';
+import '../app/domains/apicurio/typings';
+import '../app/domains/atlasmap/typings';
