@@ -15,11 +15,9 @@ export class App extends React.Component<MetadataState> {
 
   render() {
     return (
-      <div className="pf-l-page" id="page">
-        <Chrome header={<Header />} sidebar={<Sidebar />}>
-          <Routes />
-        </Chrome>
-      </div>
+      <Chrome header={<Header />} sidebar={<Sidebar />}>
+        <Routes />
+      </Chrome>
     );
   }
 }
