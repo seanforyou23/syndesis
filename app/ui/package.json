@@ -35,7 +35,6 @@
     "@types/react-router-dom": "^4.3.1",
     "@types/webpack": "^4.4.10",
     "@webcomponents/webcomponentsjs": "^2.1.1",
-    "axe-core": "^3.1.1",
     "bootstrap": "^3.3.7",
     "css-loader": "^1.0.0",
     "enzyme": "^3.4.1",
