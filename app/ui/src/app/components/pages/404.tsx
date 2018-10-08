@@ -6,6 +6,11 @@ export function NotFound() {
     <Main>
       <h1>404!</h1>
       <Alert>I am an Alert imported from PF-React</Alert>
+      <p className="pf-c-content">
+        <a href="#">link</a>
+        <br />
+        <button className="pf-c-button pf-m-link">button</button>
+      </p>
     </Main>
   );
 }
