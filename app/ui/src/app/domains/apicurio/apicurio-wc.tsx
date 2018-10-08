@@ -7,7 +7,14 @@ export class ApicurioComponent extends HTMLElement {
 
   render() {
     const shadowRoot = this.attachShadow({ mode: 'open' });
-    shadowRoot.innerHTML = `<h1 style="color:#fff" class="foo">Apicurio Web Component Container</h1>`;
+    shadowRoot.innerHTML = `
+      <h1 style="color:#fff" class="foo">Apicurio Web Component Container</h1>
+      <p class="pf-c-content">
+      <a href="#">link</a>
+      <br>
+      <button class="pf-c-button pf-m-link">button</button>
+    </p>
+    `;
   }
 
   connectedCallback() {
