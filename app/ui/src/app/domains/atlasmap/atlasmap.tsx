@@ -1,10 +1,12 @@
 import React from 'react';
-import './atlasmap-wc';
+import Loadable from 'react-loadable';
+import { Loading } from '../../components/loading/loading';
 
-export interface Props {
-  embedded: boolean;
-}
+const AsyncAtlasmapLoader = Loadable({
+  loader: () => import(/* webpackChunkName: "atlasmapChunk" */ './atlasmap-wc'),
+  loading: Loading
+});
 
-export function AtlasmapLoader({embedded}: Props) {
-  return <atlasmap-component embedded={true} />;
+export function AtlasmapLoader() {
+  return <AsyncAtlasmapLoader />;
 }

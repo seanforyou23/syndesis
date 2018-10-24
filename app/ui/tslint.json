@@ -84,7 +84,8 @@
       true,
       "ban-keywords",
       "check-format",
-      "allow-leading-underscore"
+      "allow-leading-underscore",
+      "allow-pascal-case"
     ],
     "whitespace": [
       true,
@@ -166,7 +167,7 @@
       ]
     },
     "no-debugger": true,
-    "no-default-export": true,
+    "no-default-export": false,
     "no-empty-interface": true,
     "no-reference": true,
     "no-string-literal": false,

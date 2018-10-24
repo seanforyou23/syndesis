@@ -28,7 +28,7 @@ export class Brand extends React.Component {
             className="pf-c-button pf-m-plain"
             id="nav-toggle"
             aria-label="Toggle primary navigation"
-            onClick={() => { this.toggleNav(); }}
+            onClick={() => { this.toggleNav(); }} // tslint:disable-line
           >
             <i className="fas fa-bars" aria-hidden="true" />
           </button>

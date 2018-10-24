@@ -2,7 +2,6 @@ import React from 'react';
 import './main.scss';
 
 export class Main extends React.Component {
-
   constructor(props: any) {
     super(props);
   }
@@ -14,17 +13,14 @@ export class Main extends React.Component {
         <section className="pf-l-page__main-section pf-m-light">
           <div className="pf-c-content">
             <h1>Syndesis Reacts</h1>
-            <p>
-              Body text should be Overpass Regular at 16px. It should have leading of 24px because
-              <br /> of it’s relative line height of 1.5.
-            </p>
+            <p className="syn-italic syn-smaller">
+              [sin′dəsis] Etymology: Gk, syn, together, dein, to bind.
+              surgical fixation of a joint. Also called arthrodesis.</p>
+            <p><a href="//syndesis.io/">Syndesis</a> is a flexible,
+            customizable platform that provides core integration capabilities
+            as a service. It can be run on the cloud or on premises with OpenShift
+            or Kubernetes, is fully extensible and, best of all, is open source.</p>
           </div>
-
-          <p className="pf-c-content">
-            <a href="#">link</a>
-            <br />
-            <button className="pf-c-button pf-m-link">button</button>
-          </p>
         </section>
 
         <section className="pf-l-page__main-section">

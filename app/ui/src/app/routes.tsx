@@ -1,6 +1,6 @@
-// import { MoneyBillIcon, TachometerAltIcon } from '@patternfly/react-icons';
 import React from 'react';
 import { Route, RouteProps, Switch } from 'react-router-dom';
+
 import { Dashboard } from './components/pages/dashboard/dashboard-view';
 import { NotFound } from './components/pages/404';
 import { Settings } from './domains/settings/settings';

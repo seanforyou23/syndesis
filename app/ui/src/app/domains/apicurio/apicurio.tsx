@@ -14,7 +14,7 @@ export class ApicurioLoader extends React.Component {
   }
 
   render() {
-    return <apicurio-component embedded={true} />;
+    return <apicurio-component embedded />;
   }
 
 }

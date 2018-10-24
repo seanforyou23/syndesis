@@ -1,22 +1,9 @@
-// import '@atlasmap/atlasmap-data-mapper';
-export class AtlasmapComponent extends HTMLElement {
-  constructor() {
-    super();
-  }
+import React from 'react';
+// import '@atlasmap/atlasmap-data-mapper/atlasmap-wc';
 
+export default class AtlasmapComponent extends React.Component {
   render() {
-    const shadowRoot = this.attachShadow({ mode: 'open' });
-    shadowRoot.innerHTML = `<h1 style="color:#fff">Atlasmap Web Component Container</h1>`;
-    // shadowRoot.innerHTML = `<data-mapper-example-host>`;
-  }
-
-  connectedCallback() {
-    console.log('atlasmap connected');
-    this.render();
-  }
-
-  disconnectedCallback() {
-    console.log('atlasmap disconnected');
+    // return <atlasmap-wc></atlasmap-wc>
+    return <h1>lazy loaded atlasmap</h1>;
   }
 }
-window.customElements.define('atlasmap-component', AtlasmapComponent);

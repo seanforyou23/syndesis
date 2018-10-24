@@ -1,5 +1,3 @@
-
-
 export class ApicurioComponent extends HTMLElement {
   constructor() {
     super();
