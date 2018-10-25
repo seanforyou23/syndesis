@@ -10,7 +10,9 @@ export const SettingsSubHeader = (props: any) => {
         To connect to an application that uses the OAuth protocol, obtain
         a client ID and a client secret from the application. See the
         documentation for help.</p>
-        <p>During registration, enter this callback URL: <code>https://syndesis-staging.b6ff.rh-idev.openshiftapps.com/api/v1/credentials/callback</code></p>
+        <p>During registration, enter this callback URL:
+          <code>https://syndesis-staging.b6ff.rh-idev.openshiftapps.com/api/v1/credentials/callback</code>
+        </p>
       </div>
     </section>
   );

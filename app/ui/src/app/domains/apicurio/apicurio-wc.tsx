@@ -15,16 +15,16 @@ export class ApicurioComponent extends HTMLElement {
   }
 
   connectedCallback() {
-    console.log('apicurio connected');
+    console.log('apicurio connected'); // tslint:disable-line
     this.render();
   }
 
   disconnectedCallback() {
-    console.log('apicurio disconnected');
+    console.log('apicurio disconnected'); // tslint:disable-line
   }
 
   attributeChangedCallback(attrName: string, oldVal: string, newVal: string) {
-    console.log(attrName, oldVal, newVal);
+    console.log(attrName, oldVal, newVal); // tslint:disable-line
   }
 }
 window.customElements.define('apicurio-component', ApicurioComponent);
