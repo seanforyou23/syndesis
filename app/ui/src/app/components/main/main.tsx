@@ -1,27 +1,29 @@
 import React from 'react';
+import { SubHeader } from '../chrome/subHeader/subHeader';
 import './main.scss';
 
-export class Main extends React.Component {
-  constructor(props: any) {
+interface MainProps {
+  subHeader?: React.ReactNode;
+}
+
+export class Main extends React.Component<MainProps> {
+  constructor(props: MainProps) {
     super(props);
   }
 
   render() {
+    let subHeader;
+
+    if (this.props.subHeader) {
+      subHeader = this.props.subHeader;
+    } else if (this.props.subHeader === false) {
+      subHeader = null;
+    }
+
     return (
       <main role="main" className="pf-l-page__main">
 
-        <section className="pf-l-page__main-section pf-m-light">
-          <div className="pf-c-content">
-            <h1>Syndesis Reacts</h1>
-            <p className="syn-italic syn-smaller">
-              [sin′dəsis] Etymology: Gk, syn, together, dein, to bind.
-              surgical fixation of a joint. Also called arthrodesis.</p>
-            <p><a href="//syndesis.io/">Syndesis</a> is a flexible,
-            customizable platform that provides core integration capabilities
-            as a service. It can be run on the cloud or on premises with OpenShift
-            or Kubernetes, is fully extensible and, best of all, is open source.</p>
-          </div>
-        </section>
+        {subHeader}
 
         <section className="pf-l-page__main-section">
           {this.props.children}

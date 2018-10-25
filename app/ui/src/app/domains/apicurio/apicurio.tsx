@@ -1,4 +1,5 @@
 import React from 'react';
+import { Main } from '../../components/main/main';
 import './apicurio-wc';
 
 export interface Props {
@@ -14,7 +15,11 @@ export class ApicurioLoader extends React.Component {
   }
 
   render() {
-    return <apicurio-component embedded />;
+    return (
+      <Main>
+        <apicurio-component embedded />
+      </Main>
+    );
   }
 
 }

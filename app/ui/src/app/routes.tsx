@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, RouteProps, Switch } from 'react-router-dom';
 
-import { Dashboard } from './components/pages/dashboard/dashboard-view';
 import { NotFound } from './components/pages/404';
+import { Dashboard } from './domains/dashboard/dashboard-view';
 import { Settings } from './domains/settings/settings';
 import { ApicurioLoader } from './domains/apicurio/apicurio';
 import { AtlasmapLoader } from './domains/atlasmap/atlasmap';

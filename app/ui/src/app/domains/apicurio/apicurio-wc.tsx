@@ -8,10 +8,9 @@ export class ApicurioComponent extends HTMLElement {
     shadowRoot.innerHTML = `
       <h1 style="color:#fff" class="foo">Apicurio Web Component Container</h1>
       <p class="pf-c-content">
-      <a href="#">link</a>
-      <br>
-      <button class="pf-c-button pf-m-link">button</button>
-    </p>
+        <button class="pf-c-button pf-m-link">link button</button>
+        <button class="pf-c-button pf-m-primary">primary button</button>
+      </p>
     `;
   }
 
