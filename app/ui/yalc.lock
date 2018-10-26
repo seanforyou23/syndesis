@@ -1,0 +1,13 @@
+{
+  "version": "v1",
+  "packages": {
+    "atlasmap-wc": {
+      "signature": "fec4bc059ac349cee9562703f511a324",
+      "file": true
+    },
+    "@atlasmap/atlasmap-wc": {
+      "signature": "69a3126c277708f5514bb5efc1c00c96",
+      "file": true
+    }
+  }
+}
