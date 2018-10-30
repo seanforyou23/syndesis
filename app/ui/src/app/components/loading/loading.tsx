@@ -2,7 +2,12 @@ import React from 'react';
 
 export const Loading = (props: any) => {
   if (props.error) {
-    return <div>problem loading component:</div>;
+    return (
+      <div className={'pf-l-page__main-section'}>
+        <div>problem loading component: {props.error.message}</div>
+        <pre>{props.error.stack}</pre>
+      </div>
+    )
   } else if (props.pastDelay) {
     return <div>Loading Component...</div>;
   } else {

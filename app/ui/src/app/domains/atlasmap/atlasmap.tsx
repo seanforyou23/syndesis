@@ -4,8 +4,7 @@ import { Loading } from '../../components/loading/loading';
 
 const AsyncAtlasmapLoader = Loadable({
   loader: () => import(/* webpackChunkName: "atlasmapChunk" */ './atlasmap-wc'),
-  loading: Loading,
-  delay: 1000
+  loading: Loading
 });
 
 export function AtlasmapLoader() {

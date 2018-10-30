@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "@atlasmap/atlasmap-data-mapper": {
+      "signature": "19e8e8ca928c902e1566d56482d2a21d",
+      "file": true
+    }
+  }
+}

@@ -3,7 +3,7 @@ const srcDir = path.resolve(__dirname, 'src');
 const distDir = path.resolve(__dirname, 'dist');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-// const webpack = require('webpack');
+const webpack = require('webpack');
 
 module.exports = env => {
   const isProd = env === 'production';
@@ -72,7 +72,16 @@ module.exports = env => {
               }
             }
           ]
-        }
+        },
+        {
+          test: require.resolve('jquery'),
+          use: [
+            {
+              loader: 'expose-loader',
+              options: 'jQuery'
+            }
+          ]
+        },
       ]
     },
     resolve: {
@@ -86,6 +95,9 @@ module.exports = env => {
     plugins: [
       new HtmlWebpackPlugin({
         template: path.join(srcDir, 'index.html')
+      }),
+      new webpack.ProvidePlugin({
+        jQuery: 'jquery'
       })
       // new webpack.HotModuleReplacementPlugin()
     ]
