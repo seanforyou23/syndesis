@@ -94,7 +94,7 @@ import io.syndesis.dv.openshift.BuildStatus.RouteStatus;
 import io.syndesis.dv.openshift.BuildStatus.Status;
 import io.syndesis.dv.openshift.ProtocolType;
 import io.syndesis.dv.openshift.PublishConfiguration;
-import io.syndesis.dv.openshift.SyndesisHttpUtil;
+import io.syndesis.dv.openshift.SyndesisHttpClient;
 import io.syndesis.dv.openshift.TeiidOpenShiftClient;
 import io.syndesis.dv.server.DvService;
 import io.syndesis.dv.server.Messages;
@@ -159,7 +159,6 @@ public final class DataVirtualizationService extends DvService {
 
     private RestDataVirtualization createRestDataVirtualization(final DataVirtualization virtualization) throws KException {
         RestDataVirtualization entity = new RestDataVirtualization(virtualization);
-        entity.setServiceViewModel(virtualization.getName());
         // Set published status of virtualization
         BuildStatus status = this.openshiftClient.getVirtualizationStatus(virtualization.getName());
         if (status != null) {
@@ -171,6 +170,8 @@ public final class DataVirtualizationService extends DvService {
             entity.setPublishedRevision(status.getDeploymentVersion());
         }
         entity.setEmpty(this.getWorkspaceManager().findViewDefinitionsNames(virtualization.getName()).isEmpty());
+
+        entity.setEditionCount(this.getWorkspaceManager().getEditionCount(virtualization.getName()));
         return entity;
     }
 
@@ -1041,13 +1042,14 @@ public final class DataVirtualizationService extends DvService {
         String startedAt = this.openshiftClient.getPodStartedAt(status.getNamespace(), status.getOpenShiftName());
         metrics.setStartedAt(startedAt);
 
-        String baseUrl = String.format("http://%s:%s/jolokia/read/", status.getOpenShiftName(), TeiidOpenShiftClient.JOLOKIA_PORT); //$NON-NLS-1$
+        String baseUrl = String.format("http://%s:%s/jolokia/read/", status.getOpenShiftName(), ProtocolType.JOLOKIA.getTargetPort()); //$NON-NLS-1$
 
         String auth = "jolokia:jolokia"; //$NON-NLS-1$
         String authValue = "Basic " + Base64.getEncoder().encodeToString(auth.getBytes(StandardCharsets.ISO_8859_1)); //$NON-NLS-1$
         BasicHeader authHeader = new BasicHeader(HttpHeaders.AUTHORIZATION, authValue);
 
-        try (InputStream response = SyndesisHttpUtil.executeGET(baseUrl + "org.teiid:type=Runtime/Sessions", authHeader);) {
+        try (SyndesisHttpClient client = new SyndesisHttpClient()){
+        try (InputStream response = client.executeGET(baseUrl + "org.teiid:type=Runtime/Sessions", authHeader);) {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(response);
             JsonNode value = root.withArray("value");
@@ -1057,7 +1059,7 @@ public final class DataVirtualizationService extends DvService {
             }
         }
 
-        try (InputStream response = SyndesisHttpUtil.executeGET(baseUrl + "org.teiid:type=Runtime/TotalRequestsProcessed", authHeader);) {
+        try (InputStream response = client.executeGET(baseUrl + "org.teiid:type=Runtime/TotalRequestsProcessed", authHeader);) {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(response);
             JsonNode value = root.get("value");
@@ -1067,7 +1069,7 @@ public final class DataVirtualizationService extends DvService {
             }
         }
 
-        try (InputStream response = SyndesisHttpUtil.executeGET(baseUrl + "org.teiid:type=Cache,name=ResultSet/HitRatio", authHeader);) {
+        try (InputStream response = client.executeGET(baseUrl + "org.teiid:type=Cache,name=ResultSet/HitRatio", authHeader);) {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(response);
             JsonNode value = root.get("value");
@@ -1075,6 +1077,7 @@ public final class DataVirtualizationService extends DvService {
                 double hitRatio = value.asDouble();
                 metrics.setResultSetCacheHitRatio(hitRatio);
             }
+        }
         }
 
         return metrics;

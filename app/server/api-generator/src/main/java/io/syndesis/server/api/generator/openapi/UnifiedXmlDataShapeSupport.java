@@ -130,7 +130,7 @@ public abstract class UnifiedXmlDataShapeSupport<T extends OasDocument, O extend
 
     @Override
     public DataShape createShapeFromResponse(final ObjectNode json, final T openApiDoc, final O operation) {
-        final Optional<R> maybeResponse = findResponse(operation, hasSchema(), getResponseType());
+        final Optional<R> maybeResponse = findResponse(openApiDoc, operation, hasSchema(), getResponseType());
 
         if (!maybeResponse.isPresent()) {
             return DATA_SHAPE_NONE;
@@ -168,7 +168,7 @@ public abstract class UnifiedXmlDataShapeSupport<T extends OasDocument, O extend
 
     private Element createRequestBodySchema(final T openApiDoc, final O operation,
                                               final Map<String, SchemaPrefixAndElement> moreSchemas) {
-        final Optional<NameAndSchema> maybeBodySchema = findBodySchema(operation);
+        final Optional<NameAndSchema> maybeBodySchema = findBodySchema(openApiDoc, operation);
 
         if (!maybeBodySchema.isPresent()) {
             return null;

@@ -38,6 +38,7 @@ import io.syndesis.common.model.DataShape;
 import io.syndesis.common.model.DataShapeKinds;
 import io.syndesis.common.util.json.JsonUtils;
 import io.syndesis.server.api.generator.openapi.DataShapeGenerator;
+import io.syndesis.server.api.generator.openapi.LocalResolver;
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -164,7 +165,7 @@ public class UnifiedXmlDataShapeGeneratorShapeValidityTest {
         }
 
         final Validator validator = createValidator();
-        try (InputStream in = UnifiedXmlDataShapeGenerator.class.getResourceAsStream("/swagger/atlas-xml-schemaset-model-v2.xsd")) {
+        try (InputStream in = UnifiedXmlDataShapeGenerator.class.getResourceAsStream("/openapi/v2/atlas-xml-schemaset-model-v2.xsd")) {
             validator.setSchemaSource(new StreamSource(in));
             final String outputSpecification = output.getSpecification();
             final ValidationResult result = validator.validateInstance(source(outputSpecification));
@@ -181,7 +182,7 @@ public class UnifiedXmlDataShapeGeneratorShapeValidityTest {
 
         final Schema schema;
         try {
-            schema = SCHEMA_FACTORY.newSchema(UnifiedXmlDataShapeGenerator.class.getResource("/swagger/atlas-xml-schemaset-model-v2.xsd"));
+            schema = SCHEMA_FACTORY.newSchema(UnifiedXmlDataShapeGenerator.class.getResource("/openapi/v2/atlas-xml-schemaset-model-v2.xsd"));
         } catch (final SAXException e) {
             throw new ExceptionInInitializerError(e);
         }
@@ -195,7 +196,7 @@ public class UnifiedXmlDataShapeGeneratorShapeValidityTest {
 
     @Parameters
     public static Iterable<Object[]> specifications() {
-        final List<String> specifications = Collections.singletonList("/swagger/petstore.swagger.json");
+        final List<String> specifications = Collections.singletonList("/openapi/v2/petstore.json");
 
         final List<Object[]> parameters = new ArrayList<>();
 
@@ -218,7 +219,7 @@ public class UnifiedXmlDataShapeGeneratorShapeValidityTest {
             openApiDoc.paths.getPathItems()
                 .forEach(pathItem -> {
                     Oas20ModelHelper.getOperationMap(pathItem).forEach((path, operation) -> {
-                        final Optional<DataShapeGenerator.NameAndSchema> bodySchema = generator.findBodySchema(operation);
+                        final Optional<DataShapeGenerator.NameAndSchema> bodySchema = generator.findBodySchema(openApiDoc, operation);
                         if (!bodySchema.isPresent()) {
                             // by default we resort to JSON for payloads without
                             // body, i.e.
